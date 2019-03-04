@@ -1,3 +1,3 @@
-const path = require('path');
+import path from 'path';
 
-console.log(__dirname);
+console.log(3322233);
