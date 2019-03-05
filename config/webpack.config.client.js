@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist/client'),
     filename: 'index.js',
-    library: 'CometoClient',
+    library: 'CometClient',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },

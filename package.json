@@ -1,8 +1,8 @@
 {
-  "name": "cometojs",
+  "name": "comet",
   "private": true,
   "version": "1.0.0",
-  "description": "A http long polling implementation for nodejs and browser",
+  "description": "A http long polling comet implementation for nodejs and browser",
   "scripts": {
     "build": "webpack --mode production --config ./config/webpack.config.js",
     "start:client": "webpack-dev-server --host 0.0.0.0 --mode development --config ./config/webpack.config.example.client.js",
@@ -12,22 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rousan/cometojs.git"
+    "url": "git+https://github.com/rousan/comet.git"
   },
   "keywords": [
+    "comet",
     "http",
     "long-polling",
     "polling",
     "server",
-    "client",
-    "comet"
+    "client"
   ],
   "author": "Rousan Ali <rousanali786@gmail.com> (https://rousan.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rousan/cometojs/issues"
+    "url": "https://github.com/rousan/comet/issues"
   },
-  "homepage": "https://github.com/rousan/cometojs#readme",
+  "homepage": "https://github.com/rousan/comet#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",

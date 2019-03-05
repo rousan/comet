@@ -1,3 +1,3 @@
-import CometoClient from '../src/client';
+import CometClient from '../src/client';
 
-const client = new CometoClient('http://localhost:8888/');
+const client = new CometClient('http://localhost:8888/');

@@ -1,5 +1,5 @@
-import CometoServer from '../src/server';
+import CometServer from '../src/server';
 
-const server = new CometoServer({
+const server = new CometServer({
   // cors: '*',
 });

@@ -5,7 +5,7 @@ import helper from '../helper';
 
 const connRegistry = {};
 
-class CometoServer extends EventEmitter {
+class CometServer extends EventEmitter {
   constructor(options = {}) {
     super();
     this._sanitizeOptions(options);
@@ -30,4 +30,4 @@ class CometoServer extends EventEmitter {
   }
 }
 
-export default CometoServer;
+export default CometServer;
