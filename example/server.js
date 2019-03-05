@@ -1,3 +1,5 @@
-import path from 'path';
+import CometoServer from '../src/server';
 
-console.log(path.resolve(__dirname), 33333);
+const server = new CometoServer({
+  // cors: '*',
+});

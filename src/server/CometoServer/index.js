@@ -1,7 +1,7 @@
 import http from 'http';
 import EventEmitter from 'eventemitter3';
-import defaults from './defaults';
-import helper from './helper';
+import defaults from '../defaults';
+import helper from '../helper';
 
 const connRegistry = {};
 
