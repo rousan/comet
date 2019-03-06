@@ -1,6 +1,6 @@
 {
   "name": "comet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A http long polling comet implementation for nodejs and browser",
   "repository": {
     "type": "git",
