@@ -51,5 +51,8 @@
     "eventemitter3": "^3.1.0",
     "lodash": "^4.17.11",
     "uuid": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
