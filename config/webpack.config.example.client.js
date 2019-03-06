@@ -23,5 +23,14 @@ module.exports = {
   devServer: {
     inline: true,
     contentBase: './example',
+    proxy: {
+      '/polling': {
+        target: {
+          host: '0.0.0.0',
+          protocol: 'http:',
+          port: 8888,
+        },
+      },
+    },
   },
 };

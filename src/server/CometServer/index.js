@@ -1,9 +1,11 @@
 import http from 'http';
-import EventEmitter from 'eventemitter3';
 import defaults from '../defaults';
-import helper from '../helper';
+import EventEmitter from '../../commons/EventEmitter';
+import { readAll } from '../helper';
+import { cometHeader } from '../../commons';
+import CometConn from '../CometConn';
 
-const connRegistry = {};
+const connRegistry = new Map();
 
 class CometServer extends EventEmitter {
   constructor(options = {}) {
@@ -19,14 +21,33 @@ class CometServer extends EventEmitter {
     }
 
     this._options = options;
-    this.options.server.on('request', this._handleNewRawRequest.bind(this));
+    this._options.server.on('request', this._handleNewRawRequest.bind(this));
   }
 
   _handleNewRawRequest(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', this._options.cors);
-    setTimeout(() => {
-      res.end('dd');
-    }, 10000);
+    const sessionId = req.headers[cometHeader.toLowerCase()];
+    if (!sessionId) {
+      return;
+    }
+
+    req.setEncoding('utf8');
+    readAll(req)
+      .then((data) => {
+        data = JSON.parse(data);
+        res.setHeader('Access-Control-Allow-Origin', this._options.cors);
+
+        if (connRegistry.has(sessionId)) {
+          connRegistry.get(sessionId)._newRequest(req, res, data);
+        } else {
+          const newConn = new CometConn(sessionId);
+          connRegistry.set(sessionId, newConn);
+          this.emit('connection', newConn, data);
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify({ message: 'Session registered' }));
+          res.end();
+        }
+      })
+      .catch((err) => { console.log(err); });
   }
 }
 

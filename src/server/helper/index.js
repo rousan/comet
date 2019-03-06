@@ -1,14 +1,8 @@
-import _ from 'lodash';
-
 export const readAll = stream => new Promise((res, rej) => {
-  let data;
+  let data = '';
 
   stream.on('data', (chunk) => {
-    if (_.isString(chunk)) {
-      data += chunk;
-    } else {
-      data = Buffer.concat([data, chunk]);
-    }
+    data += chunk;
   });
 
   stream.on('end', () => {
