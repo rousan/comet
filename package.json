@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A http long polling comet implementation for nodejs and browser",
   "scripts": {
-    "build": "webpack --mode production --config ./config/webpack.config.js",
+    "build": "webpack --mode production --config ./config/webpack.config.js && cp README.md dist/README.m && cp LICENSE dist/LICENSE",
     "start:client": "webpack-dev-server --host 0.0.0.0 --mode development --config ./config/webpack.config.example.client.js",
     "build:example:server": "webpack --mode development --config ./config/webpack.config.example.server.js",
     "start:server": "nodemon --watch src/server --watch example/server.js --exec 'npm run build:example:server && node example/dist/server.js'",
