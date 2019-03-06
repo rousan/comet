@@ -1,0 +1,58 @@
+{
+  "name": "comet",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A http long polling comet implementation for nodejs and browser",
+  "scripts": {
+    "build": "webpack --mode production --config ./config/webpack.config.js",
+    "start:client": "webpack-dev-server --host 0.0.0.0 --mode development --config ./config/webpack.config.example.client.js",
+    "build:example:server": "webpack --mode development --config ./config/webpack.config.example.server.js",
+    "start:server": "nodemon --watch src/server --watch example/server.js --exec 'npm run build:example:server && node example/dist/server.js'",
+    "start": "concurrently 'npm run start:client' 'npm run start:server'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rousan/comet.git"
+  },
+  "keywords": [
+    "comet",
+    "http",
+    "long-polling",
+    "polling",
+    "server",
+    "client"
+  ],
+  "author": "Rousan Ali <rousanali786@gmail.com> (https://rousan.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rousan/comet/issues"
+  },
+  "homepage": "https://github.com/rousan/comet#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "transform-runtime": "0.0.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.7",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "eventemitter3": "^3.1.0",
+    "lodash": "^4.17.11",
+    "uuid": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
